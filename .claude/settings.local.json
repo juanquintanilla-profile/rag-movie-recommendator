@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conda:*)",
+      "Bash(python -c:*)",
+      "Bash(curl:*)",
+      "Bash(python retrieval/main.py:*)",
+      "Bash(pip install:*)"
+    ]
+  }
+}

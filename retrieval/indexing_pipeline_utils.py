@@ -27,4 +27,23 @@ def create_docs_to_embedd(movies: list[Movie], config: config.RetrievalExpsConfi
 def get_synopsys_txt(movie: Movie) -> str:
     return movie.synopsis
 
+
+def get_enriched_txt(movie: Movie) -> str:
+    """
+    Crea un texto enriquecido con múltiples metadatos de la película.
+    Incluye: título, género, director, país, elenco y sinopsis.
+    """
+    # Limpiamos los campos que pueden tener separadores
+    genres = movie.genre_tags.replace(";", ", ") if movie.genre_tags else ""
+    cast = movie.cast_top_5.replace(";", ", ") if movie.cast_top_5 else ""
+
+    enriched_text = f"""Título: {movie.title_es}
+Géneros: {genres}
+Director: {movie.director_top_5}
+País: {movie.country}
+Elenco: {cast}
+Sinopsis: {movie.synopsis}"""
+
+    return enriched_text
+
 # def ...
